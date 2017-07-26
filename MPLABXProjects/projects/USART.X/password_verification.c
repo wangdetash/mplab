@@ -1,4 +1,4 @@
-/*The program to recieve and transmit a string using functions
+/*The program to verify password in microcontoller using serial communication
  * File:   RXTX_string.c
  * Author: tashi
  *
