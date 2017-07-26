@@ -1,4 +1,4 @@
-/* program to analog read and display voltage and represent digital value on PORTB and PORTB
+/* program to read analog data ,convert to digital,serially print voltage and represent digitally using PORTB and PORTC
  * File:   analogread_dispalyserial.c
  * Author: tashi
  *
