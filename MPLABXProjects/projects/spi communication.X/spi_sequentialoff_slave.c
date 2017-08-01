@@ -1,4 +1,4 @@
-/*program for slave to sequentialy off leds in two pic boards simultaniously. Here master transmits and slave recieves port status
+/* slave program to recieve port status via spi protocol
  * File:   spi_sequentialoff_slave.c
  * Author: tashi
  *
