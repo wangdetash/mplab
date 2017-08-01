@@ -1,8 +1,8 @@
-/*  master program to sequentially off pins and transmit port status via spi protocol
- * File:   spi_sequentialoff_master.c
+/*program for slave to sequentialy off leds in two pic boards simultaniously. Here master transmits and slave recieves port status
+ * File:   spi_sequentialoff_slave.c
  * Author: tashi
  *
- * Created on 1 August, 2017, 8:57 AM
+ * Created on 1 August, 2017, 9:08 AM
  */
 
 
@@ -26,28 +26,18 @@
 #define _XTAL_FREQ 4000000
 
 #include <xc.h>
-
-void main(void) 
+void main(void)
 {
-    TRISC3=0;
+    TRISC3=1;
     TRISC4=1;
     TRISC5=0;
     SSPSTAT=0X40;
-    SSPCON=0X30;
+    SSPCON=0X35;
     TRISB=0X00;
-    PORTB=0X01;
-    int i;
     while(1)
     {
-        for(i=0;i<8;i++)
-        {
-            PORTB=PORTB<<1;
-            SSPBUF=PORTB;
-            while(SSPIF==0);
-            SSPIF=0;
-            __delay_ms(500);
-        }
-        i=0;
-        PORTB=0X01;
+        while(SSPIF==0);
+        PORTB=SSPBUF;
+        SSPIF=0;
     }
 }
