@@ -1,4 +1,4 @@
-/*program to transmit a string when a switch is pressed
+/* program to transmit a string when a switch is pressed
  * File:   TX_switch.c
  * Author: tashi
  *
