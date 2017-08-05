@@ -43,14 +43,14 @@ void main(void)
     char s,m,h,p[20];
     init();
     start();
-    while(transmit(0XD0)==1)
+    while(transmit(0XD0)==1)    //mention write mode
     {
-        start();
+        start();    //waiting for slave to respond
     }
-    transmit(0X00);
-    transmit(0X16);
-    transmit(0X14);
-    transmit(0X15);
+    transmit(0X00); // transmit register address
+    transmit(0X16); //transmit second
+    transmit(0X14); //transmit minute
+    transmit(0X15); //transmit hours
     stop();
     while(1)
     {
@@ -59,9 +59,9 @@ void main(void)
         {
             start();
         }
-        transmit(0X00);
+        transmit(0X00); //transmit register address
         restart();
-        transmit(0XD1);
+        transmit(0XD1); //mention read mode
         s=recieve();
         ack();
         m=recieve();
